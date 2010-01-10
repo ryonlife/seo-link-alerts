@@ -1,0 +1,13 @@
+<h2>Listing Alerts</h2>
+
+<table>
+<% @alerts.each do |alert| %>
+  <tr>
+    <td><%=h alert.feed.domain %></td>
+    <td><%=h alert.url %></td>
+    <td><%= link_to 'Show', alert %></td>
+    <td><%= link_to 'Edit', edit_alert_path(alert) %></td>
+    <td><%= link_to 'Destroy', alert, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>

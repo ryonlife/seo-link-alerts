@@ -1,0 +1,9 @@
+*~
+.DS_Store
+*.cache
+*.log
+*.pid
+tmp/**/*
+doc/api
+doc/app
+database.yml
