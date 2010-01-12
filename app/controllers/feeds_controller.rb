@@ -5,37 +5,25 @@ class FeedsController < ApplicationController
   def index
     @feeds = Feed.find_all_by_user_id(current_user)
     
-    @rss = rss_worker(@feeds)
-    @rss = @rss[0]
+    @parsed_feeds = parse_feeds(@feeds)
+    debugger
+    #@loops = queue_crawls(@parsed_feeds)
+
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @feeds }
     end
   end
   
-  def rss_worker(feeds)
-    feeds.inject([]){ |parsed,feed| parsed << Feedzirra::Feed.fetch_and_parse(feed.url)}
+  def parse_feeds(feeds)
+    feeds.inject([]){ |parsed, feed| parsed << Feedzirra::Feed.fetch_and_parse(feed.url) }
+    # feeds.each do |feed|
+    #   debugger
+    # end
   end
   
-  def rss_worker2(feeds)
-    rss = []
-    feeds.each do |f|
-      #debugger
-      rss << Feedzirra::Feed.fetch_and_parse(f.url)
-    end
-    rss[0]
-    #rss = Feedzirra::Feed.fetch_and_parse(feeds[0].url)
-  end
+  def queue_crawls(parsed_feeds)
 
-  # GET /feeds/new
-  # GET /feeds/new.xml
-  def new
-    @feed = Feed.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.xml  { render :xml => @feed }
-    end
   end
 
   # GET /feeds/1/edit
