@@ -1,17 +1,23 @@
 class FeedsController < ApplicationController
+  
   # GET /feeds
   # GET /feeds.xml
   def index
     @feeds = Feed.find_all_by_user_id(current_user)
     
-    @rss = rss_worker @feeds
-    
-    #require 'feedzirra'
-    #@rss = Feedzirra::Feed.fetch_and_parse(@feeds[0].url)
+    @rss = rss_worker(@feeds)
     
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @feeds }
+    end
+  end
+
+  def rss_worker(feeds)
+    require 'feedzirra'
+    
+    feeds.each do |f|
+      rss = Feedzirra::Feed.fetch_and_parse(f.url)
     end
   end
 
@@ -34,8 +40,7 @@ class FeedsController < ApplicationController
   # POST /feeds
   # POST /feeds.xml
   def create
-    @feed = Feed.new(params[:feed])
-    @feed.user_id = current_user
+    @feed = current_user.feeds.build(params[:feed])
 
     respond_to do |format|
       if @feed.save
@@ -78,10 +83,4 @@ class FeedsController < ApplicationController
     end
   end
   
-  def rss_worker(feeds)
-    require 'feedzirra'
-    feeds.each do |f|
-      rss = Feedzirra::Feed.fetch_and_parse(f.url)
-    end
-  end
 end
