@@ -5,31 +5,12 @@ class FeedsController < ApplicationController
   def index
     @feeds = Feed.find_all_by_user_id(current_user)
     
-    @parsed_feeds = parse_feeds(@feeds)
-    #debugger
-    #@parsed_feeds = parse_feeds(@feeds)
-
+    Feed.parse_all_by_user_id(current_user)
+    
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @feeds }
     end
-  end
-  
-  def parse_feeds(feeds)
-    # urlpub[]
-    feeds.inject([]){ |parsed, feed| parsed << Feedzirra::Feed.fetch_and_parse(feed.url) }
-    # feeds.each do |feed|
-    #   debugger
-    #     feed.entries.each do |entry|
-    #       urlpub[0] = entry.published
-    #       urlpub[1] = entry.url
-    #     end
-    # end
-    # urlpub
-  end
-  
-  def queue_crawls(parsed_feeds)
-
   end
 
   # GET /feeds/1/edit
