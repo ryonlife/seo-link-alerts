@@ -11,16 +11,4 @@
 <% end %>
 </table>
 
-<%#= @loops %>
-<%= debug @parsed_feeds %>
-<% @parsed_feeds = nil %>
-
-<% if @parsed_feeds then %>
-  <% @parsed_feeds.each do |parsed_feed| %>
-    <% parsed_feed.entries.each do |entry| %>
-      <pre><%= entry.published %> <%= entry.url %></pre>
-    <% end %>
-  <% end %>
-<% end %>
-
 <p><%= link_to 'New Feed', new_feed_path %></p>

@@ -11,15 +11,31 @@ class Feed < ActiveRecord::Base
   end
   
   def parse
+    save_last_parsed_at = true
+    freshest_timestamp = ''
+    
+    # Parse each feed and iterate entries
     parsed = Feedzirra::Feed.fetch_and_parse(self.url)
     parsed.entries.each do |entry|
-      crawls << Crawl.new(:url => entry.url)
+      
+      # Add new entry URLs to crawl queue, stop looping when an old entry is hit
+      break if entry.published < self.last_parsed_at
+      if entry.published > self.last_parsed_at then
+        crawls << Crawl.new(:url => entry.url)
+      end
+      
+      # Store timestamp of freshest feed entry
+      if save_last_parsed_at then
+        freshest_timestamp = entry.published
+        save_last_parsed_at = false
+      end
+    end
+    
+    # Update feed timestamp
+    unless freshest_timestamp.blank?
+      self.last_parsed_at = freshest_timestamp
+      self.save
     end
   end 
   
-  # before_save :add_user_id
-  # def add_user_id
-  #   self.user_id = current_user
-  # end
-
 end
