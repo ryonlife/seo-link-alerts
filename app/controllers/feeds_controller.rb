@@ -12,6 +12,17 @@ class FeedsController < ApplicationController
       format.xml  { render :xml => @feeds }
     end
   end
+  
+  # GET /feeds/new
+  # GET /feeds/new.xml
+  def new
+    @feed = Feed.new
+
+    respond_to do |format|
+      format.html # new.html.erb
+      format.xml  { render :xml => @feed }
+    end
+  end  
 
   # GET /feeds/1/edit
   def edit
