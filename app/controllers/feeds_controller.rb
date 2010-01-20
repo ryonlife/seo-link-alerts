@@ -5,7 +5,7 @@ class FeedsController < ApplicationController
   def index
     @feeds = Feed.find_all_by_user_id(current_user)
     
-    Feed.parse_all_by_user_id(current_user)
+    # Feed.parse_all_by_user_id(current_user)
     
     respond_to do |format|
       format.html # index.html.erb
