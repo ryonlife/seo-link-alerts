@@ -3,7 +3,7 @@ class Feed < ActiveRecord::Base
   has_many :crawls, :dependent => :destroy 
   has_many :alerts, :dependent => :destroy
   
-  after_save :parse_later
+  # after_save :parse_later
   
   # def self.parse_all_by_user_id(user_id)
   #   feeds = self.find_all_by_user_id(user_id)
