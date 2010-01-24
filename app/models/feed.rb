@@ -6,7 +6,7 @@ class Feed < ActiveRecord::Base
   after_create :parse_later
   
   def parse_later
-    Delayed::Job.enqueue(ParseFeedJob.new(self.id))
+    Delayed::Job.enqueue(ParseFeed.new(self.id))
   end
   
 end
