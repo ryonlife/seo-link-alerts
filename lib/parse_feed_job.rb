@@ -1,7 +1,6 @@
 class ParseFeedJob < Struct.new(:feed_id)
   def perform
     feed = Feed.find(feed_id)
-
     save_last_parsed_at = true
     freshest_timestamp = ''
     
@@ -9,9 +8,9 @@ class ParseFeedJob < Struct.new(:feed_id)
     parsed = Feedzirra::Feed.fetch_and_parse(feed.url)
     parsed.entries.each do |entry|
       
-      # Add new entry URLs to crawl queue, stop looping when an old entry is hit
+      # Add new entry URLs to crawl queue, stop looping when a previously parsed entry is hit
       break if entry.published < feed.last_parsed_at
-      Delayed::Job.enqueue(ParseCrawlJob.new(feed.id, feed.domain, feed.domain, entry.url))
+      Delayed::Job.enqueue(ParseCrawlJob.new(feed.id, feed.domain, entry.url))
       
       # Store timestamp of freshest feed entry
       if save_last_parsed_at
