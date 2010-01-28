@@ -3,10 +3,6 @@ class Feed < ActiveRecord::Base
   has_many :crawls, :dependent => :destroy 
   has_many :alerts, :dependent => :destroy
   
-  after_create :parse_later
-  
-  def parse_later
-    Delayed::Job.enqueue(ParseFeed.new(self.id))
-  end
+  after_create { Delayed::Job.enqueue(ParseFeed.new(self.id)) }
   
 end

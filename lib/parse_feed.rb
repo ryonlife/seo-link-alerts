@@ -5,7 +5,10 @@ class ParseFeed < Struct.new(:feed_id)
     freshest_timestamp = ''
     
     # Parse each feed and iterate entries
-    parsed = Feedzirra::Feed.fetch_and_parse(feed.url)
+    parsed = Feedzirra::Feed.fetch_and_parse(feed.url, {
+      :timeout => 10,
+      :on_failure => lambda {raise "feedzirra failed"}
+    })
     parsed.entries.each do |entry|
       
       # Add new entry URLs to crawl queue, stop looping when a previously parsed entry is hit
