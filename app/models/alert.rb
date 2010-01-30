@@ -12,12 +12,12 @@ class Alert < ActiveRecord::Base
     secret_key = CGI::escape('cf23f577e2d6bf7b22aa23e6cbaa6158')  
     expires = Time.now.to_i + (60 * 60 * 2)
     api_call = 'url-metrics'
-    url = self.url
-
+    url = CGI::escape(self.url)
+    
     signature = CGI::escape(Base64.encode64(HMAC::SHA1.digest(secret_key, "#{access_id}\n#{expires}")).chomp)
     to_fetch = "http://lsapi.seomoz.com/linkscape/#{api_call}/#{url}?AccessID=#{access_id}&Expires=#{expires}&Signature=#{signature}"
-    self.metrics = open(to_fetch).read
-    # self.save
+    self.metrics = JSON.parse(open(to_fetch).read)
+    self.save
   end
   
 end
