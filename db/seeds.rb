@@ -5,3 +5,5 @@
 #   
 #   cities = City.create([{ :name => 'Chicago' }, { :name => 'Copenhagen' }])
 #   Major.create(:name => 'Daley', :city => cities.first)
+
+# http://asciicasts.com/episodes/179-seed-data
