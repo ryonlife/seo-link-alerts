@@ -39,7 +39,7 @@ ActiveRecord::Schema.define(:version => 20100118040250) do
     t.string   "domain"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.datetime "last_parsed_at", :default => '2000-01-23 15:43:01'
+    t.datetime "last_parsed_at", :default => '2000-02-01 17:13:59'
   end
 
   create_table "users", :force => true do |t|
