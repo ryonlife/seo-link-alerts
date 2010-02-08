@@ -1,29 +1,22 @@
 !!! Strict
-
 %html(xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en")
-  
   %head
     %meta(http-equiv="content-type" content="text/html;charset=UTF-8")
     %title Link Alert
-    = stylesheet_link_tag 'scaffold'
-  
+    =stylesheet_link_tag 'http://yui.yahooapis.com/combo?3.0.0/build/cssreset/reset-min.css&3.0.0/build/cssfonts/fonts-min.css&3.0.0/build/cssbase/base-min.css'
+    =stylesheet_link_tag 'style'
   %body
-    
-    %h1 Link Alerts
-    
-    %p(style="color:green")= flash[:notice]
-    
-    %ul
-      - if current_user
-        - unless params[:controller] == 'feeds'
-          %li= link_to "Feeds", :feeds
-        - unless params[:controller] == 'alerts'  
-          %li= link_to "Alerts", :alerts
-        - unless params[:controller] == 'users' 
-          %li= link_to "Edit Profile", edit_user_path(:current)
-        %li= link_to "Logout", logout_path
-      - else
-        %li= link_to "Register", new_user_path
-        %li= link_to "Login", login_path
-    
-    = yield
+    #header
+      %h1 SEO Link Alerts
+      %ul{:class => params[:controller]}
+        -if current_user
+          %li.feeds= link_to "Feeds", :feeds
+          %li.alerts= link_to "Alerts", :alerts
+          %li.users= link_to "Account", edit_user_path(:current)
+          =link_to "Logout", logout_path, {:class => 'logout'}
+        -else
+          %li.user_sessions= link_to "Login", login_path
+          %li.users= link_to "Register", new_user_path
+    #content
+      %p{:style => "color:green"}= flash[:notice]
+      =yield

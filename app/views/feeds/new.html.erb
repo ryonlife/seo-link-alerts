@@ -7,7 +7,7 @@
     <%= f.text_field :domain %>
   </p>
   <p>
-    <%= f.label :url %><br />
+    <%= f.label :url, 'URL' %><br />
     <%= f.text_field :url, :class => 'url' %>
   </p>  
   <p>
@@ -15,4 +15,4 @@
   </p>
 <% end %>
 
-<%= link_to 'Back', feeds_path %>
+<%= link_to 'Back to Feeds &raquo;', feeds_path %>

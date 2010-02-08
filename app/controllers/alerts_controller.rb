@@ -3,7 +3,7 @@ class AlertsController < ApplicationController
   # GET /alerts.xml
   def index
     @alerts = Alert.all
-
+    # debugger
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @alerts }

@@ -1,14 +1,13 @@
-<h2>Listing Feeds</h2>
+<h2>Feeds</h2>
 
 <table>
 <% @feeds.each do |feed| %>
   <tr>
     <td><%=h feed.domain %></td>    
     <td><%= link_to feed.url, feed.url %></td> <!-- how to escape? -->
-    <td><%= link_to 'Edit', edit_feed_path(feed) %></td>
-    <td><%= link_to 'Delete', feed, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= link_to 'Delete', feed, {:class => 'delete'} %></td>
   </tr>
 <% end %>
 </table>
 
-<p><%= link_to 'New Feed', new_feed_path %></p>
+<p><%= link_to 'New Feed &raquo;', new_feed_path %></p>

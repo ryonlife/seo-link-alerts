@@ -12,6 +12,10 @@ class ApplicationController < ActionController::Base
   
   private
   
+    def active_tab
+      
+    end
+  
     def current_user_session
       return @current_user_session if defined?(@current_user_session)
       @current_user_session = UserSession.find

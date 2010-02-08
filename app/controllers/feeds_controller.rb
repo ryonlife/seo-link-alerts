@@ -24,11 +24,6 @@ class FeedsController < ApplicationController
     end
   end  
 
-  # GET /feeds/1/edit
-  def edit
-    @feed = Feed.find(params[:id])
-  end
-
   # POST /feeds
   # POST /feeds.xml
   def create
@@ -41,23 +36,6 @@ class FeedsController < ApplicationController
         format.xml  { render :xml => @feed, :status => :created, :location => @feed }
       else
         format.html { render :action => "new" }
-        format.xml  { render :xml => @feed.errors, :status => :unprocessable_entity }
-      end
-    end
-  end
-
-  # PUT /feeds/1
-  # PUT /feeds/1.xml
-  def update
-    @feed = Feed.find(params[:id])
-
-    respond_to do |format|
-      if @feed.update_attributes(params[:feed])
-        flash[:notice] = 'Feed was successfully updated.'
-        format.html { redirect_to :feeds }
-        format.xml  { head :ok }
-      else
-        format.html { render :action => "edit" }
         format.xml  { render :xml => @feed.errors, :status => :unprocessable_entity }
       end
     end

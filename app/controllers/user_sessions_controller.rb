@@ -1,6 +1,10 @@
 class UserSessionsController < ApplicationController
   def new
-    @user_session = UserSession.new
+    if current_user
+      redirect_to :controller => 'alerts'
+    else
+      @user_session = UserSession.new
+    end
   end
   
   def create

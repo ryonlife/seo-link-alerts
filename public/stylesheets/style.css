@@ -1,0 +1,63 @@
+.clear {
+  clear: both; }
+
+a:hover {
+  text-decoration: none; }
+
+a:active {
+  outline: none; }
+
+a:focus {
+  -moz-outline-style: none; }
+
+#header {
+  padding: 30px 20px 0 20px;
+  background-color: #333; }
+  #header a {
+    text-decoration: none; }
+  #header h1 {
+    display: inline;
+    margin: 0 5px 0 0;
+    color: #FFF; }
+  #header ul {
+    margin: 5px 0 0 0;
+    padding: 0;
+    display: inline-block;
+    list-style-type: none; }
+    #header ul li {
+      display: inline-block;
+      height: 25px;
+      line-height: 25px;
+      margin: 0 5px 0 0; }
+      #header ul li a {
+        display: block;
+        height: 25px;
+        padding: 0 10px;
+        background-color: #CCC;
+        color: #333; }
+      #header ul li a:hover {
+        background-color: #EFEFEF; }
+  #header ul.feeds li.feeds a,
+  #header ul.alerts li.alerts a,
+  #header ul.users li.users a,
+  #header ul.user_sessions li.user_sessions a {
+    background-color: #FFF; }
+  #header ul.feeds li.feeds a:hover,
+  #header ul.alerts li.alerts a:hover,
+  #header ul.users li.users a:hover,
+  #header ul.user_sessions li.user_sessions a:hover {
+    text-decoration: none; }
+  #header a.logout {
+    color: #FFF; }
+  #header a.logout:hover {
+    text-decoration: underline; }
+
+#content {
+  padding: 10px 20px; }
+  #content table td {
+    border-color: #CCC; }
+    #content table td a.delete {
+      color: #999; }
+  #content input[type="text"],
+  #content input[type="password"] {
+    width: 200px; }

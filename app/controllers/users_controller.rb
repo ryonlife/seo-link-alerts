@@ -1,6 +1,10 @@
 class UsersController < ApplicationController
   def new
-    @user = User.new
+    if current_user
+      redirect_to :controller => 'alerts'
+    else
+      @user = User.new
+    end
   end
   
   def create
@@ -19,11 +23,7 @@ class UsersController < ApplicationController
   
   def update
     @user = current_user
-    if @user.update_attributes(params[:user])
-      flash[:notice] = "Successfully updated user."
-      redirect_to :controller => 'feeds'
-    else
-      render :action => 'edit'
-    end
+    if @user.update_attributes(params[:user]) then flash[:notice] = "Successfully updated user." end
+    render :action => 'edit'
   end
 end

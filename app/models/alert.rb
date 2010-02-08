@@ -1,6 +1,7 @@
 class Alert < ActiveRecord::Base
   belongs_to :feed
   after_create :alert_metrics_job
+  serialize :metrics
   
   private
   

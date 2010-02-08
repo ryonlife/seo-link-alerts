@@ -1,11 +1,13 @@
-<h2>Listing Alerts</h2>
+<h2>Alerts</h2>
 
 <table>
 <% @alerts.each do |alert| %>
   <tr>
     <td><%= alert.feed.domain %></td>
-    <td><%= link_to alert.title, alert.url %></td>
-    <td><%= link_to 'Delete', alert, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= link_to alert.title, alert.url, {:target => '_blank'} %></td>
+    <td><%= sprintf("%0.02f", alert.metrics['fmrp']) unless alert.metrics.nil? %></td>
+    <td><%= alert.created_at.strftime("%b %d") %></td>
+    <td><%= link_to 'Delete', alert, {:class => 'delete'} %></td>
   </tr>
 <% end %>
 </table>
