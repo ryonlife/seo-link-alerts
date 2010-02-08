@@ -9,13 +9,13 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100118040250) do
+ActiveRecord::Schema.define(:version => 20100208072005) do
 
   create_table "alerts", :force => true do |t|
     t.integer  "feed_id"
     t.string   "url"
     t.string   "title"
-    t.string   "metrics"
+    t.text     "metrics",    :limit => 1000
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -39,7 +39,7 @@ ActiveRecord::Schema.define(:version => 20100118040250) do
     t.string   "domain"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.datetime "last_parsed_at", :default => '2000-02-01 17:13:59'
+    t.datetime "last_parsed_at", :default => '2000-01-23 15:43:01'
   end
 
   create_table "users", :force => true do |t|
