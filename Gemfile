@@ -1,0 +1,11 @@
+source "http://gemcutter.org"
+source "http://gems.github.com"
+
+gem "nokogiri"
+gem "authlogic"
+gem "haml"
+gem "httparty"
+gem "pauldix-feedzirra", :require => "feedzirra"
+gem "mechanize"
+gem "ruby-hmac", :require => "ruby_hmac"
+gem "json"
