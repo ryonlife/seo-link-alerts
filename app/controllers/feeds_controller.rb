@@ -3,8 +3,7 @@ class FeedsController < ApplicationController
   # GET /feeds
   # GET /feeds.xml
   def index
-    @feeds = Feed.find_all_by_user_id(current_user)
-    
+    @feeds = Feed.find_all_by_user_id(current_user, {:order => 'domain'})
     # Feed.parse_all_by_user_id(current_user)
     
     respond_to do |format|

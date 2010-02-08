@@ -17,8 +17,8 @@ class AlertsController < ApplicationController
     @alert.destroy
 
     respond_to do |format|
-      format.html { redirect_to(alerts_url) }
-      format.xml  { head :ok }
+      format.html { redirect_to alerts_url }
+      format.js { render :nothing => true }
     end
   end
 end

@@ -6,6 +6,9 @@ a:active
   outline: none
 a:focus
   -moz-outline-style: none
+p.flash
+  margin-top: 1em
+  color: green
 #header
   padding: 30px 20px 0 20px
   background-color: #333
@@ -13,13 +16,12 @@ a:focus
   a
     text-decoration: none
   h1
-    display: inline
-    margin: 0 5px 0 0
+    margin: 0 0 10px 0
     color: #FFF
   ul
     margin: 5px 0 0 0
     padding: 0
-    display: inline-block
+    display: block
     list-style-type: none
     li
       display: inline-block
@@ -34,6 +36,9 @@ a:focus
         color: #333
       a:hover
         background-color: #EFEFEF
+    li.logout
+      float: right
+      margin: 0
   ul.feeds li.feeds,
   ul.alerts li.alerts,
   ul.users li.users,
@@ -42,18 +47,24 @@ a:focus
       background-color: #FFF
     a:hover
       text-decoration: none
-  a.logout
-    color: #FFF
-  a.logout:hover
-    text-decoration: underline
 #content
   padding: 10px 20px
-  table td
-    border-color: #CCC
-    a.delete
-      color: #999
+  table
+    th,
+    td
+      border-color: #CCC
+      text-align: left
+    th.delete,
+    td.delete
+      border-width: 0 0 0 1px
+      a
+        display: none
+        color: #999
+  #feed_url
+    width: 550px      
   input[type="text"],
   input[type="password"]
     width: 200px
-  input#feed_url
-    width:550px
+  label
+    font-weight: bold
+    color: #333

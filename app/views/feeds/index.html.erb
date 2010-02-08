@@ -1,13 +1,23 @@
 <h2>Feeds</h2>
 
 <table>
-<% @feeds.each do |feed| %>
-  <tr>
-    <td><%=h feed.domain %></td>    
-    <td><%= link_to feed.url, feed.url %></td> <!-- how to escape? -->
-    <td><%= link_to 'Delete', feed, {:class => 'delete'} %></td>
-  </tr>
-<% end %>
+  <thead>
+    <tr>
+      <th>Domain</th>
+      <th>Google Alert</th>
+      <th>Parsed</th>
+      <th class='delete'></th>
+    </tr>
+  </thead>
+  </tr>  
+  <% @feeds.each do |feed| %>
+    <tr>
+      <td><%=h feed.domain %></td>    
+      <td><%= link_to feed.url, feed.url, {:target => '_blank'} %></td>
+      <td><%= feed.last_parsed_at.strftime('%m/%d/%y at %H:%M') unless feed.last_parsed_at.nil?  %></td>
+      <td class="delete"><%= link_to 'Delete', feed %></td>
+    </tr>
+  <% end %>
 </table>
 
 <p><%= link_to 'New Feed &raquo;', new_feed_path %></p>

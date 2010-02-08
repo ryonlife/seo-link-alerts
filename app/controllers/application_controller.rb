@@ -1,20 +1,20 @@
-# Filters added to this controller apply to all controllers in the application.
-# Likewise, all the methods added will be available for all controllers.
-
 class ApplicationController < ActionController::Base
-  helper :all # include all helpers, all the time
-  protect_from_forgery # See ActionController::RequestForgeryProtection for details
+  after_filter :set_xhr_flash
+  helper :all
+  protect_from_forgery
 
   # Scrub sensitive parameters from your log
   # filter_parameter_logging :password
   
   helper_method :current_user
   
-  private
+  protected
   
-    def active_tab
-      
-    end
+    def set_xhr_flash
+      flash.discard if request.xhr?
+    end  
+  
+  private
   
     def current_user_session
       return @current_user_session if defined?(@current_user_session)
