@@ -1,0 +1,8 @@
+nokogiri
+authlogic
+haml
+httparty
+pauldix-feedzirra
+mechanize
+ruby-hmac
+json
