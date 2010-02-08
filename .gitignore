@@ -7,4 +7,4 @@ tmp/**/*
 doc/api
 doc/app
 *.sqlite3
-vendor/gems
+vendor/bundler_gems
