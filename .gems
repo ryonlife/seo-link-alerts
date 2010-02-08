@@ -2,7 +2,7 @@ nokogiri
 authlogic
 haml
 httparty
-pauldix-feedzirra
+pauldix-feedzirra --source gems.github.com
 mechanize
 ruby-hmac
 json
