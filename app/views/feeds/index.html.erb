@@ -1,23 +1,24 @@
 <h2>Feeds</h2>
 
-<table>
+<table id="feeds" class="tablesorter">
   <thead>
     <tr>
       <th>Domain</th>
       <th>Google Alert</th>
       <th>Parsed</th>
-      <th class='delete'></th>
+      <th class="delete"></th>
     </tr>
   </thead>
-  </tr>  
-  <% @feeds.each do |feed| %>
-    <tr>
-      <td><%=h feed.domain %></td>    
-      <td><%= link_to feed.url, feed.url, {:target => '_blank'} %></td>
-      <td><%= feed.last_parsed_at.strftime('%m/%d/%y at %H:%M') unless feed.last_parsed_at.nil?  %></td>
-      <td class="delete"><%= link_to 'Delete', feed %></td>
-    </tr>
-  <% end %>
+  <tbody>
+    <% @feeds.each do |feed| %>
+      <tr>
+        <td><%=h feed.domain %></td>    
+        <td><%= link_to feed.url, feed.url, {:target => '_blank'} %></td>
+        <td><%= feed.last_parsed_at.strftime('%b %d, %Y %I:%M %p') unless feed.last_parsed_at.nil?  %></td>
+        <td class="delete"><%= link_to image_tag('trash_can.gif'), feed %></td>
+      </tr>
+    <% end %>
+  </tbody>
 </table>
 
 <p><%= link_to 'New Feed &raquo;', new_feed_path %></p>

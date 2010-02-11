@@ -1,3 +1,6 @@
+body {
+  font-family: "Lucida Grande","Lucida Sans Unicode",Arial,Verdana,sans-serif; }
+
 .clear {
   clear: both; }
 
@@ -58,20 +61,31 @@ p.flash {
   padding: 10px 20px; }
   #content table th,
   #content table td {
-    border-color: #CCC;
-    text-align: left; }
+    border: 1px solid #CCC;
+    text-align: left;
+    line-height: 20px; }
   #content table th.delete,
   #content table td.delete {
-    border-width: 0 0 0 1px; }
+    border-width: 0 0 0 1px;
+    overflow: hidden; }
     #content table th.delete a,
     #content table td.delete a {
       display: none;
-      color: #999; }
+      position: relative;
+      top: 1px; }
+  #content table th.mozrank {
+    padding-right: 20px; }
   #content #feed_url {
-    width: 550px; }
+    width: 750px; }
+  #content input {
+    font-family: "Lucida Grande","Lucida Sans Unicode",Arial,Verdana,sans-serif; }
   #content input[type="text"],
   #content input[type="password"] {
-    width: 200px; }
+    width: 300px;
+    font-size: 16px;
+    padding: 3px; }
   #content label {
+    display: block;
     font-weight: bold;
-    color: #333; }
+    color: #333;
+    padding-bottom: 2px; }

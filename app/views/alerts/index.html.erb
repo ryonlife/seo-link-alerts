@@ -1,22 +1,24 @@
 <h2>Alerts</h2>
 
-<table>
-  <tr>
-    <thead>
+<table id="alerts" class="tablesorter">
+  <thead>
+    <tr>
       <th>Domain</th>
       <th>Link Alert</th>
-      <th>mozRank</th>
+      <th class="mozrank">mozRank</th>
       <th>Parsed</th>
-      <th class='delete'></th>
-    </thead>
-  </tr>
-  <% @alerts.each do |alert| %>
-    <tr>
-      <td><%= alert.feed.domain %></td>
-      <td><%= link_to alert.title, alert.url, {:target => '_blank'} %></td>
-      <td><%= sprintf('%0.02f', alert.metrics['fmrp']) unless alert.metrics.nil? %></td>
-      <td><%= alert.created_at.strftime('%m/%d/%y at %H:%M') %></td>
-      <td class="delete"><%= link_to 'Delete', alert %></td>
+      <th class="delete"></th>
     </tr>
-  <% end %>
+  </thead>
+  <tbody>
+    <% @alerts.each do |alert| %>
+      <tr>
+        <td><%= alert.feed.domain %></td>
+        <td><%= link_to alert.title, alert.url, {:target => '_blank'} %></td>
+        <td><%= sprintf('%0.02f', alert.metrics['fmrp']) unless alert.metrics.nil? %></td>
+        <td><%= alert.created_at.strftime('%b %d, %Y %I:%M %p') %></td>
+        <td class="delete"><%= link_to image_tag('trash_can.gif'), alert %></td>
+      </tr>
+    <% end %>
+  </tbody>
 </table>

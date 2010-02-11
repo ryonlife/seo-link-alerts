@@ -2,7 +2,7 @@ class AlertsController < ApplicationController
   # GET /alerts
   # GET /alerts.xml
   def index
-    @alerts = Alert.all
+    @alerts = Alert.all({:order => 'created_at DESC'})
     # debugger
     respond_to do |format|
       format.html # index.html.erb

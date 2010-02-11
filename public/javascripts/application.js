@@ -22,4 +22,11 @@ $(function(){
     }
   );
   
+  $("table#feeds").tablesorter({
+    sortList: [[0,0]]
+  });
+  $("table#alerts").tablesorter({
+    sortList: [[3,1]]
+  });
+  
 });

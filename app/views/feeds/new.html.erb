@@ -3,11 +3,11 @@
 <% form_for(@feed) do |f| %>
   <%= f.error_messages %>
   <p>
-    <%= f.label :domain %><br />
+    <%= f.label :domain %>
     <%= f.text_field :domain %>
   </p>
   <p>
-    <%= f.label :url, 'URL' %><br />
+    <%= f.label :url, 'URL' %>
     <%= f.text_field :url, :class => 'url' %>
   </p>  
   <p>
