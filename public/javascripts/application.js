@@ -1,5 +1,7 @@
 $(function(){
 
+  records = $("tbody tr").length;
+
   $(".delete a").click(function() {
     $.ajax({
       type: "post",
@@ -10,7 +12,8 @@ $(function(){
       }
     });
     $(this).parents("tr").fadeOut();
-    $("h2 span").text($("tbody tr").length);
+    records--;
+    $('h2 span').text(records);
     return false;
   });
   
@@ -23,7 +26,7 @@ $(function(){
     }
   );
   
-  if($("tbody tr").length) {
+  if(records) {
     $("table#feeds").tablesorter({
       sortList: [[0,0]]
     });
