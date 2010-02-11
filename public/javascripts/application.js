@@ -10,6 +10,7 @@ $(function(){
       }
     });
     $(this).parents("tr").fadeOut();
+    $('h2 span').text($('tbody tr').length);
     return false;
   });
   
@@ -22,11 +23,13 @@ $(function(){
     }
   );
   
-  $("table#feeds").tablesorter({
-    sortList: [[0,0]]
-  });
-  $("table#alerts").tablesorter({
-    sortList: [[3,1]]
-  });
+  if($('tbody tr').length) {
+    $("table#feeds").tablesorter({
+      sortList: [[0,0]]
+    });
+    $("table#alerts").tablesorter({
+      sortList: [[3,1]]
+    });
+  }
   
 });
