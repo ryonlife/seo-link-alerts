@@ -14,7 +14,7 @@
       <tr>
         <td><%=h feed.domain %></td>    
         <td><%= link_to feed.url, feed.url, {:target => '_blank'} %></td>
-        <td><%= feed.last_parsed_at.strftime('%b %d, %Y %I:%M %p') unless feed.last_parsed_at.nil?  %></td>
+        <td><%= feed.last_parsed_at.strftime('%b %d, %Y %I:%M %p') unless feed.last_parsed_at.strftime('%Y') == '2000' %></td>
         <td class="delete"><%= link_to image_tag('trash_can.gif'), feed %></td>
       </tr>
     <% end %>
