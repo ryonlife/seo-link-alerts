@@ -18,6 +18,7 @@ class UsersController < ApplicationController
   end
   
   def edit
+    require_user
     @user = current_user
   end
   

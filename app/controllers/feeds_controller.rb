@@ -1,4 +1,5 @@
 class FeedsController < ApplicationController
+  before_filter :require_user
   
   # GET /feeds
   # GET /feeds.xml

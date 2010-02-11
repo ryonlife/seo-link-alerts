@@ -1,4 +1,6 @@
 class AlertsController < ApplicationController
+  before_filter :require_user
+  
   # GET /alerts
   # GET /alerts.xml
   def index
