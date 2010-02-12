@@ -59,21 +59,25 @@ p.flash {
 
 #content {
   padding: 10px 20px; }
-  #content table th,
-  #content table td {
-    border: 1px solid #CCC;
-    text-align: left;
-    line-height: 20px;
-    min-width: 150px; }
-  #content table th.delete,
-  #content table td.delete {
-    border-width: 0 0 0 1px;
-    overflow: hidden; }
-    #content table th.delete a,
-    #content table td.delete a {
-      display: none;
-      position: relative;
-      top: 1px; }
+  #content table {
+    table-layout: fixed; }
+    #content table th,
+    #content table td {
+      border: 1px solid #CCC;
+      text-align: left;
+      line-height: 20px; }
+    #content table th.mozrank {
+      width: 90px; }
+    #content table th.delete,
+    #content table td.delete {
+      border-width: 0 0 0 1px;
+      width: 13px;
+      overflow: hidden; }
+      #content table th.delete a,
+      #content table td.delete a {
+        display: none;
+        position: relative;
+        top: 1px; }
   #content #feed_url {
     width: 750px; }
   #content input {

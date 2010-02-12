@@ -52,15 +52,18 @@ p.flash
 #content
   padding: 10px 20px
   table
+    table-layout: fixed
     th,
     td
       border: 1px solid #CCC
       text-align: left
       line-height: 20px
-      min-width: 150px
+    th.mozrank
+      width: 90px
     th.delete,
     td.delete
       border-width: 0 0 0 1px
+      width: 13px
       overflow: hidden
       a
         display: none
