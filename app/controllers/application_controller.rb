@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-  # before_filter :ensure_domain
+  before_filter :ensure_domain
   after_filter :set_xhr_flash
   helper :all
   protect_from_forgery
@@ -12,7 +12,7 @@ class ApplicationController < ActionController::Base
   private
   
     def ensure_domain
-      if ENV['RAILS_ENV'] == 'development' && request.env['HTTP_HOST'] != 'la.ryonlife.com'
+      if ENV['RAILS_ENV'] == 'production' && request.env['HTTP_HOST'] != 'la.ryonlife.com'
         redirect_to 'http://la.ryonlife.com'
       end
     end
