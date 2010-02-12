@@ -17,7 +17,7 @@
         <td class="link"><%= link_to alert.title, alert.url, {:target => '_blank'} %></td>
         <td><%= sprintf('%0.02f', alert.metrics['fmrp']) unless alert.metrics.nil? %></td>
         <td><%= alert.created_at.strftime('%b %d, %Y %I:%M %p') %></td>
-        <td class="delete"><%= link_to image_tag('trash_can_selected.gif'), alert %></td>
+        <td class="delete"><%= link_to image_tag('trash_can.gif'), alert %></td>
       </tr>
     <% end %>
   </tbody>

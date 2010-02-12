@@ -25,6 +25,14 @@ $(function(){
       $(this).find("td.delete a").hide();
     }
   );
+  $("tr td.delete a img").hover(
+    function(){
+      $(this).attr({src:'/images/trash_can_selected.gif'});
+    },
+    function(){
+      $(this).attr({src:'/images/trash_can.gif'});
+    }
+  );
   
   if(records) {
     $("table#feeds").tablesorter({

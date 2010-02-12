@@ -65,13 +65,15 @@ p.flash {
     #content table td {
       border: 1px solid #CCC;
       text-align: left;
-      line-height: 20px; }
-    #content table th.mozrank {
-      width: 90px; }
+      line-height: 20px;
+      padding-right: 21px;
+      white-space: nowrap;
+      text-overflow: ellipsis; }
     #content table th.delete,
     #content table td.delete {
       border-width: 0 0 0 1px;
       width: 13px;
+      min-width: 13px;
       overflow: hidden; }
       #content table th.delete a,
       #content table td.delete a {
