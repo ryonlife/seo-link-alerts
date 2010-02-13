@@ -36,7 +36,7 @@ $(function(){
   
   if(records) {
     $("table#feeds").tablesorter({
-      sortList: [[0,0]]
+      sortList: [[3,1]]
     });
     $("table#alerts").tablesorter({
       sortList: [[3,1]]
