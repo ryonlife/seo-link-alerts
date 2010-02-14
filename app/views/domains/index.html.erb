@@ -1,0 +1,28 @@
+<h2>Domains (<span><%= @domains.length %></span>)</h2>
+
+<table id="domains" class="tablesorter">
+  <thead>
+    <tr>
+      <th>Domain</th>
+      <th>Alerts</th>
+      <th>Last Alert</th>
+      <th class="delete"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @domains.each do |domain| %>
+      <tr>
+        <td><%=h domain.name %></td>
+        <td><%= domain.alerts.length %></td>  
+        <td>
+          <% if domain.alerts.length >= 1 %>
+            <%= domain.alerts.last.created_at.strftime('%b %d, %Y %I:%M %p') %>
+          <% end %>
+        </td>
+        <td class="delete"><%= link_to image_tag('trash_can.gif'), domain %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<p><%= link_to 'New Domain &raquo;', new_domain_path %></p>

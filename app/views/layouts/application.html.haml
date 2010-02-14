@@ -3,19 +3,22 @@
   %head
     %meta(http-equiv="content-type" content="text/html;charset=UTF-8")
     %title SEO Link Alerts
-    =stylesheet_link_tag 'http://yui.yahooapis.com/combo?3.0.0/build/cssreset/reset-min.css&3.0.0/build/cssfonts/fonts-min.css&3.0.0/build/cssbase/base-min.css'
-    =stylesheet_link_tag '/javascripts/jquery_plugins/tablesorter/blue/style'
-    =stylesheet_link_tag 'style'    
-    =javascript_include_tag 'jquery-1.4.1.min'
-    =javascript_include_tag 'jquery_plugins/tablesorter/jquery.tablesorter.min'
-    =javascript_include_tag 'application'
+    =stylesheet_link_tag "http://yui.yahooapis.com/combo?3.0.0/build/cssreset/reset-min.css&3.0.0/build/cssfonts/fonts-min.css&3.0.0/build/cssbase/base-min.css"
+    =stylesheet_link_tag "style"
+    =stylesheet_link_tag "/javascripts/jquery_plugins/tablesorter/blue/style"
+    =stylesheet_link_tag "/javascripts/jquery_plugins/tipsy/stylesheets/tipsy.css"
+    =javascript_include_tag "jquery-1.4.1.min"
+    =javascript_include_tag "jquery_plugins/tablesorter/jquery.tablesorter.min"
+    =javascript_include_tag "jquery_plugins/tipsy/javascripts/jquery.tipsy.js"
+    =javascript_include_tag "application"
     =javascript_tag "var AUTH_TOKEN = #{form_authenticity_token.inspect};" if protect_against_forgery?
   %body
     #header
       %h1 SEO Link Alerts
       %ul{:class => params[:controller]}
         -if current_user
-          %li.alerts= link_to "Alerts", :alerts        
+          %li.alerts= link_to "Alerts", :alerts
+          %li.domains= link_to "Domains", :domains
           %li.feeds= link_to "Feeds", :feeds
           %li.users= link_to "Account", edit_user_path(:current)
           %li.logout= link_to "Logout", logout_path
@@ -23,5 +26,5 @@
           %li.user_sessions= link_to "Login", login_path
           %li.users= link_to "Register", new_user_path
     #content
-      %p{:class => 'flash'}= flash[:notice]
+      %p{:class => "flash"}= flash[:notice]
       =yield

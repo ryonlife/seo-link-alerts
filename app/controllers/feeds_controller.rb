@@ -1,56 +1,36 @@
 class FeedsController < ApplicationController
   before_filter :require_user
   
-  # GET /feeds
-  # GET /feeds.xml
   def index
-    @feeds = Feed.find_all_by_user_id(current_user, {:order => 'last_alert_at DESC'})
-    # Feed.parse_all_by_user_id(current_user)
-    
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @feeds }
-    end
+    @feeds = Feed.find_all_by_user_id(current_user, {:order => 'begin_parsing_after DESC'})
   end
   
-  # GET /feeds/new
-  # GET /feeds/new.xml
   def new
-    @feed = Feed.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.xml  { render :xml => @feed }
+    if Domain.find_all_by_user_id(current_user).length == 0
+      flash[:notice] = "Add at least one domain before adding a feed."
+      redirect_to :controller => "domains", :action => "new"
+    else
+      @feed = Feed.new   
     end
   end  
 
-  # POST /feeds
-  # POST /feeds.xml
   def create
     @feed = current_user.feeds.build(params[:feed])
-
-    respond_to do |format|
-      if @feed.save
-        flash[:notice] = 'Feed was successfully created.'
-        format.html { redirect_to :feeds }
-        format.xml  { render :xml => @feed, :status => :created, :location => @feed }
-      else
-        format.html { render :action => "new" }
-        format.xml  { render :xml => @feed.errors, :status => :unprocessable_entity }
-      end
+    if @feed.save
+      flash[:notice] = 'Feed was successfully created.'
+      redirect_to :feeds
+    else
+      render :action => "new"
     end
   end
 
-  # DELETE /feeds/1
-  # DELETE /feeds/1.xml
   def destroy
     @feed = Feed.find(params[:id])
     @feed.destroy
-
     respond_to do |format|
-      format.html { redirect_to(feeds_url) }
-      format.xml  { head :ok }
-    end
+      format.html { redirect_to feeds_url }
+      format.js { render :nothing => true }
+    end    
   end
   
 end

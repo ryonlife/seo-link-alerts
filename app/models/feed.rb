@@ -1,12 +1,16 @@
 class Feed < ActiveRecord::Base
   belongs_to :user
-  has_many :crawls, :dependent => :destroy 
-  has_many :alerts, :dependent => :destroy
-  validates_presence_of :url
-  validates_presence_of :domain
+  has_and_belongs_to_many :alerts
+  before_create :get_name
   after_create :parse_feed_job
   
   private
+  
+    def get_name
+      feed = Feedzirra::Feed.fetch_and_parse(self.url)
+      self.name = feed.title[16,feed.title.length - 16]
+      if self.name.nil? then false end
+    end
   
     def parse_feed_job
       Delayed::Job.enqueue(ParseFeed.new(self.id))

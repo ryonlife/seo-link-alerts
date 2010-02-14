@@ -1,5 +1,7 @@
 class Alert < ActiveRecord::Base
-  belongs_to :feed
+  belongs_to :user
+  has_and_belongs_to_many :feeds
+  has_and_belongs_to_many :domains
   after_create :alert_metrics_job
   serialize :metrics
   

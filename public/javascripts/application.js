@@ -13,7 +13,7 @@ $(function(){
     });
     $(this).parents("tr").fadeOut();
     records--;
-    $('h2 span').text(records);
+    $("h2 span").text(records);
     return false;
   });
   
@@ -27,10 +27,10 @@ $(function(){
   );
   $("tr td.delete a img").hover(
     function(){
-      $(this).attr({src:'/images/trash_can_selected.gif'});
+      $(this).attr({src:"/images/trash_can_selected.gif"});
     },
     function(){
-      $(this).attr({src:'/images/trash_can.gif'});
+      $(this).attr({src:"/images/trash_can.gif"});
     }
   );
   
@@ -39,8 +39,30 @@ $(function(){
       sortList: [[3,1]]
     });
     $("table#alerts").tablesorter({
-      sortList: [[3,1]]
+      sortList: [[1,1]]
+    });
+    $("table#domains").tablesorter({
+      sortList: [[1,1]]
     });
   }
+  
+  var style = {
+    color: "#3D3D3D",
+    textDecoration: "none",
+    cursor: "text"
+  }
+  $("a[title]")
+    .click(function(){
+      return false;
+    })
+    .tipsy({gravity: "e"})
+    .hover(
+      function(){
+        $(this).css(style);
+      },
+      function(){
+        $(this).css(style);
+      }
+    );
   
 });

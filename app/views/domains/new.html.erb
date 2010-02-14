@@ -1,0 +1,14 @@
+<h2>New Domain</h2>
+
+<% form_for(@domain) do |d| %>
+  <%= d.error_messages %>
+  <p>
+    <%= d.label :name %>
+    <%= d.text_field :name %>
+  </p>
+  <p>
+    <%= d.submit 'Create' %>
+  </p>
+<% end %>
+
+<%= link_to '&laquo; Back to Domains', domains_path %>

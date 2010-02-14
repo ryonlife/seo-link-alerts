@@ -13,6 +13,12 @@ a:active {
 a:focus {
   -moz-outline-style: none; }
 
+a[title],
+a[title]:hover {
+  color: #3D3D3D;
+  text-decoration: none;
+  cursor: text; }
+
 p.flash {
   margin-top: 1em;
   color: green; }
@@ -47,11 +53,13 @@ p.flash {
       float: right;
       margin: 0; }
   #header ul.feeds li.feeds a,
+  #header ul.domains li.domains a,
   #header ul.alerts li.alerts a,
   #header ul.users li.users a,
   #header ul.user_sessions li.user_sessions a {
     background-color: #FFF; }
   #header ul.feeds li.feeds a:hover,
+  #header ul.domains li.domains a:hover,
   #header ul.alerts li.alerts a:hover,
   #header ul.users li.users a:hover,
   #header ul.user_sessions li.user_sessions a:hover {
@@ -66,9 +74,7 @@ p.flash {
       border: 1px solid #CCC;
       text-align: left;
       line-height: 20px;
-      padding-right: 21px;
-      white-space: nowrap;
-      text-overflow: ellipsis; }
+      padding-right: 21px; }
     #content table th.delete,
     #content table td.delete {
       border-width: 0 0 0 1px;

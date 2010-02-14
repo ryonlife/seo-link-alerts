@@ -3,8 +3,8 @@
 <table id="feeds" class="tablesorter">
   <thead>
     <tr>
-      <th>Domain</th>
       <th>Google Alert</th>
+      <th>Alerts</th>
       <th>Parsed</th>
       <th>Last Alert</th>
       <th class="delete"></th>
@@ -12,11 +12,15 @@
   </thead>
   <tbody>
     <% @feeds.each do |feed| %>
-      <tr>
-        <td><%=h feed.domain %></td>    
-        <td><%= link_to feed.url, feed.url, {:target => '_blank'} %></td>
+      <tr>  
+        <td><%= link_to truncate(feed.name, {:length => 70}), feed.url, {:target => '_blank'} %></td>
+        <td><%= feed.alerts.length %></td>
         <td><%= feed.updated_at.strftime('%b %d, %Y %I:%M %p') %></td>
-        <td><%= feed.last_alert_at.strftime('%b %d, %Y %I:%M %p') unless feed.last_alert_at.strftime('%Y') == '2000' %></td>
+        <td>
+          <% if feed.alerts.length >= 1 %>
+            <%= feed.alerts.last.created_at.strftime('%b %d, %Y %I:%M %p') %>
+          <% end %>
+        </td>
         <td class="delete"><%= link_to image_tag('trash_can.gif'), feed %></td>
       </tr>
     <% end %>

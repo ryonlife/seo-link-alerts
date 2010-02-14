@@ -14,63 +14,83 @@ user = User.create!(
   :password => 'workingpoint1',
   :password_confirmation => 'workingpoint1'
 )
-
+Domain.create!(
+  :user_id => user.id,
+  :name => 'blinksale.com'
+)
 Feed.create!(
   :user_id => user.id,
-  :domain => 'blinksale.com',
   :url => 'http://www.google.com/alerts/feeds/15340011665024776864/13479364529815066233'
 )
-
+Domain.create(
+  :user_id => user.id,
+  :name => 'clarityaccounting.com'
+)
 Feed.create(
   :user_id => user.id,
-  :domain => 'clarityaccounting.com',
   :url => 'http://www.google.com/alerts/feeds/15340011665024776864/14483086467735945816'
 )
-
+Domain.create(
+  :user_id => user.id,
+  :name => 'freeagentcentral.com'
+)
 Feed.create(
   :user_id => user.id,
-  :domain => 'freeagentcentral.com',
   :url => 'http://www.google.com/alerts/feeds/15340011665024776864/9052846273680508133'
 )
-
+Domain.create(
+  :user_id => user.id,
+  :name => 'freshbooks.com'
+)
 Feed.create(
   :user_id => user.id,
-  :domain => 'freshbooks.com',
   :url => 'http://www.google.com/alerts/feeds/15340011665024776864/821401960719390402'
 )
-
+Domain.create(
+  :user_id => user.id,
+  :name => 'getballpark.com'
+)
 Feed.create(
   :user_id => user.id,
-  :domain => 'getballpark.com',
   :url => 'http://www.google.com/alerts/feeds/15340011665024776864/17500597487404998314'
 )
-
+Domain.create(
+  :user_id => user.id,
+  :name => 'getharvest.com'
+)
 Feed.create(
   :user_id => user.id,
-  :domain => 'getharvest.com',
   :url => 'http://www.google.com/alerts/feeds/15340011665024776864/13289910584060414974'
 )
-
-Feed.create(
+Domain.create(
   :user_id => user.id,
-  :domain => 'intuit.com',
+  :name => 'intuit.com'
+)
+Feed.create(
+  :user_id => user.id,  
   :url => 'http://www.google.com/alerts/feeds/15340011665024776864/2337650881512061'
 )
-
-Feed.create(
+Domain.create(
   :user_id => user.id,
-  :domain => 'outright.com',
+  :name => 'outright.com'
+)
+Feed.create(
+  :user_id => user.id,  
   :url => 'http://www.google.com/alerts/feeds/15340011665024776864/13544752635861414129'
 )
-
+Domain.create(
+  :user_id => user.id,
+  :name => 'xero.com'
+)
 Feed.create(
   :user_id => user.id,
-  :domain => 'xero.com',
   :url => 'http://www.google.com/alerts/feeds/15340011665024776864/811024738914585518'
 )
-
-Feed.create(
+Domain.create(
   :user_id => user.id,
-  :domain => 'zoho.com',
+  :name => 'zoho.com'
+)
+Feed.create(
+  :user_id => user.id,  
   :url => 'http://www.google.com/alerts/feeds/15340011665024776864/10614922649383398045'
 )

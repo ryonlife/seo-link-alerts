@@ -9,15 +9,24 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100212220311) do
+ActiveRecord::Schema.define(:version => 20100214042156) do
 
   create_table "alerts", :force => true do |t|
-    t.integer  "feed_id"
     t.string   "url"
     t.string   "title"
-    t.text     "metrics",    :limit => 1000
+    t.text     "metrics"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "alerts_domains", :id => false, :force => true do |t|
+    t.integer "alert_id"
+    t.integer "domain_id"
+  end
+
+  create_table "alerts_feeds", :id => false, :force => true do |t|
+    t.integer "alert_id"
+    t.integer "feed_id"
   end
 
   create_table "delayed_jobs", :force => true do |t|
@@ -33,13 +42,21 @@ ActiveRecord::Schema.define(:version => 20100212220311) do
     t.datetime "updated_at"
   end
 
+  create_table "domains", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "name"
+    t.datetime "last_alert_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "feeds", :force => true do |t|
     t.integer  "user_id"
     t.string   "url"
-    t.string   "domain"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.datetime "last_alert_at", :default => '2000-02-10 19:06:24'
+    t.datetime "begin_parsing_after", :default => '2000-02-10 19:06:24'
+    t.string   "name"
   end
 
   create_table "users", :force => true do |t|

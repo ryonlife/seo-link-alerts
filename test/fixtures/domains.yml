@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  user_id: 1
+  domain: MyString
+  last_alert_at: 2010-02-13 17:23:42
+
+two:
+  user_id: 1
+  domain: MyString
+  last_alert_at: 2010-02-13 17:23:42

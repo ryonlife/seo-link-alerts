@@ -1,6 +1,9 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :domains
+
   map.resources :alerts
   map.resources :feeds
+  map.resources :domains
   map.resources :user_sessions
   map.resources :users  
   
