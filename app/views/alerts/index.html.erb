@@ -16,8 +16,8 @@
       <tr> 
         <td class="link"><%= link_to h(truncate(alert.title.strip, {:length => 70})), alert.url, {:target => '_blank'} %></td>
         <td><%= sprintf('%0.02f', alert.metrics['fmrp']) unless alert.metrics.nil? %></td>
-        <td><%= display_one_or_many(alert.domains, "domains") %></td>
-        <td><%= display_one_or_many(alert.feeds, "feeds") %></td>        
+        <td><%= display_one_or_many(alert.domains) %></td>
+        <td><%= display_one_or_many(alert.feeds) %></td>        
         <td><%= alert.created_at.strftime('%b %d, %Y %I:%M %p') %></td>
         <td class="delete"><%= link_to image_tag('trash_can.gif'), alert %></td>
       </tr>
