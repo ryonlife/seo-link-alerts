@@ -9,4 +9,4 @@ doc/app
 *.sqlite3
 vendor/bundler_gems
 *.autotest
-spec_report.html
+spec_results.html
