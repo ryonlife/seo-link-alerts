@@ -34,12 +34,35 @@ $(function(){
     }
   );
   
+  var numeric_or_text = "text";
+  $.tablesorter.addParser({ 
+    id: 'string_starts_with_number', 
+    is: function(s) { 
+      return false; 
+    }, 
+    format: function(s) {
+      var numeric = s.match(/(^[0-9]+)\s[domain|feed]/)
+      if(numeric) {
+        s = numeric[1]
+        numeric_or_text = "numeric";
+      }
+      console.log(s);
+      console.log(numeric_or_text);
+      return s;
+    }, 
+    type: numeric_or_text
+  });  
+  
   if(records) {
     $("table#feeds").tablesorter({
       sortList: [[3,1]]
     });
     $("table#alerts").tablesorter({
-      sortList: [[1,1]]
+      sortList: [[1,1]],
+      headers: {
+        // 2: {sorter: 'string_starts_with_number'},
+        // 3: {sorter: 'string_starts_with_number'}
+      }
     });
     $("table#domains").tablesorter({
       sortList: [[1,1]]
@@ -66,3 +89,4 @@ $(function(){
     );
   
 });
+

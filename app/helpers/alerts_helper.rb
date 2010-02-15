@@ -1,8 +1,8 @@
 module AlertsHelper
   def display_one_or_many(obj, name)
     if obj.length == 1
-      if name == "domains"
-        truncate(obj[0].name, {:length => 25})
+      if obj[0].name.length <= 25
+        obj[0].name
       else
         link_to truncate(obj[0].name, {:length => 25}), "#", {:title => obj[0].name}
       end
