@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html 
+  PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>RSpec results</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Expires" content="-1" />
+  <meta http-equiv="Pragma" content="no-cache" />
+  <style type="text/css">
+  body {
+    margin: 0;
+    padding: 0;
+    background: #fff;
+    font-size: 80%;
+  }
+  </style>
+  <script type="text/javascript">
+    // <![CDATA[
+function moveProgressBar(percentDone) {
+  document.getElementById("rspec-header").style.width = percentDone +"%";
+}
+function makeRed(element_id) {
+  document.getElementById(element_id).style.background = '#C40D0D';
+  document.getElementById(element_id).style.color = '#FFFFFF';
+}
+
+function makeYellow(element_id) {
+  if (element_id == "rspec-header" && document.getElementById(element_id).style.background != '#C40D0D')
+  {
+    document.getElementById(element_id).style.background = '#FAF834';
+    document.getElementById(element_id).style.color = '#000000';
+  }
+  else
+  {
+    document.getElementById(element_id).style.background = '#FAF834';
+    document.getElementById(element_id).style.color = '#000000';
+  }
+}
+
+    // ]]>
+  </script>
+  <style type="text/css">
+#rspec-header {
+  background: #65C400; color: #fff; height: 4em;
+}
+
+.rspec-report h1 {
+  margin: 0px 10px 0px 10px;
+  padding: 10px;
+  font-family: "Lucida Grande", Helvetica, sans-serif;
+  font-size: 1.8em;
+  position: absolute;
+}
+
+#summary {
+  margin: 0; padding: 5px 10px;
+  font-family: "Lucida Grande", Helvetica, sans-serif;
+  text-align: right;
+  top: 0px;
+  right: 0px;
+  float:right;
+}
+
+#summary p {
+  margin: 0 0 0 2px;
+}
+
+#summary #totals {
+  font-size: 1.2em;
+}
+
+.example_group {
+  margin: 0 10px 5px;
+  background: #fff;
+}
+
+dl {
+  margin: 0; padding: 0 0 5px;
+  font: normal 11px "Lucida Grande", Helvetica, sans-serif;
+}
+
+dt {
+  padding: 3px;
+  background: #65C400;
+  color: #fff;
+  font-weight: bold;
+}
+
+dd {
+  margin: 5px 0 5px 5px;
+  padding: 3px 3px 3px 18px;
+}
+
+dd.spec.passed {
+  border-left: 5px solid #65C400;
+  border-bottom: 1px solid #65C400;
+  background: #DBFFB4; color: #3D7700;
+}
+
+dd.spec.failed {
+  border-left: 5px solid #C20000;
+  border-bottom: 1px solid #C20000;
+  color: #C20000; background: #FFFBD3;
+}
+
+dd.spec.not_implemented {
+  border-left: 5px solid #FAF834;
+  border-bottom: 1px solid #FAF834;
+  background: #FCFB98; color: #131313;
+}
+
+dd.spec.pending_fixed {
+  border-left: 5px solid #0000C2;
+  border-bottom: 1px solid #0000C2;
+  color: #0000C2; background: #D3FBFF;
+}
+
+.backtrace {
+  color: #000;
+  font-size: 12px;
+}
+
+a {
+  color: #BE5C00;
+}
+
+/* Ruby code, style similar to vibrant ink */
+.ruby {
+  font-size: 12px;
+  font-family: monospace;
+  color: white;
+  background-color: black;
+  padding: 0.1em 0 0.2em 0;
+}
+
+.ruby .keyword { color: #FF6600; }
+.ruby .constant { color: #339999; }
+.ruby .attribute { color: white; }
+.ruby .global { color: white; }
+.ruby .module { color: white; }
+.ruby .class { color: white; }
+.ruby .string { color: #66FF00; }
+.ruby .ident { color: white; }
+.ruby .method { color: #FFCC00; }
+.ruby .number { color: white; }
+.ruby .char { color: white; }
+.ruby .comment { color: #9933CC; }
+.ruby .symbol { color: white; }
+.ruby .regex { color: #44B4CC; }
+.ruby .punct { color: white; }
+.ruby .escape { color: white; }
+.ruby .interp { color: white; }
+.ruby .expr { color: white; }
+
+.ruby .offending { background-color: gray; }
+.ruby .linenum {
+  width: 75px;
+  padding: 0.1em 1em 0.2em 0;
+  color: #000000;
+  background-color: #FFFBD3;
+}
+
+  </style>
+</head>
+<body>
+<div class="rspec-report">
+
+<div id="rspec-header">
+  <div id="label">
+    <h1>RSpec Code Examples</h1>
+  </div>
+
+  <div id="summary">
+    <p id="totals">&nbsp;</p>
+    <p id="duration">&nbsp;</p>
+  </div>
+</div>
+
+<div class="results">
+<div class="example_group">
+  <dl>
+  <dt id="example_group_1">Feed</dt>
+    <script type="text/javascript">makeRed('rspec-header');</script>
+    <script type="text/javascript">makeRed('example_group_1');</script>
+    <script type="text/javascript">moveProgressBar('100.0');</script>
+    <dd class="spec failed">
+      <span class="failed_spec_name">should create a new instance given valid attributes</span>
+      <div class="failure" id="failure_1">
+        <div class="message"><pre>undefined method `name=' for #&lt;Feed:0x26434d8&gt;</pre></div>
+        <div class="backtrace"><pre>/Library/Ruby/Gems/1.8/gems/activerecord-2.3.5/lib/active_record/attribute_methods.rb:255:in `method_missing'
+/www/seo_link_alerts/app/models/feed.rb:11:in `get_name'
+/Library/Ruby/Gems/1.8/gems/activesupport-2.3.5/lib/active_support/callbacks.rb:178:in `send'
+/Library/Ruby/Gems/1.8/gems/activesupport-2.3.5/lib/active_support/callbacks.rb:178:in `evaluate_method'
+/Library/Ruby/Gems/1.8/gems/activesupport-2.3.5/lib/active_support/callbacks.rb:166:in `call'
+/Library/Ruby/Gems/1.8/gems/activesupport-2.3.5/lib/active_support/callbacks.rb:93:in `run'
+/Library/Ruby/Gems/1.8/gems/activesupport-2.3.5/lib/active_support/callbacks.rb:92:in `each'
+/Library/Ruby/Gems/1.8/gems/activesupport-2.3.5/lib/active_support/callbacks.rb:92:in `send'
+/Library/Ruby/Gems/1.8/gems/activesupport-2.3.5/lib/active_support/callbacks.rb:92:in `run'
+/Library/Ruby/Gems/1.8/gems/activesupport-2.3.5/lib/active_support/callbacks.rb:276:in `run_callbacks'
+/Library/Ruby/Gems/1.8/gems/activerecord-2.3.5/lib/active_record/callbacks.rb:344:in `callback'
+/Library/Ruby/Gems/1.8/gems/activerecord-2.3.5/lib/active_record/callbacks.rb:265:in `create'
+/Library/Ruby/Gems/1.8/gems/activerecord-2.3.5/lib/active_record/base.rb:2874:in `create_or_update_without_callbacks'
+/Library/Ruby/Gems/1.8/gems/activerecord-2.3.5/lib/active_record/callbacks.rb:250:in `create_or_update'
+/Library/Ruby/Gems/1.8/gems/activerecord-2.3.5/lib/active_record/base.rb:2555:in `save_without_validation!'
+/Library/Ruby/Gems/1.8/gems/activerecord-2.3.5/lib/active_record/validations.rb:1088:in `save_without_dirty!'
+/Library/Ruby/Gems/1.8/gems/activerecord-2.3.5/lib/active_record/dirty.rb:87:in `save_without_transactions!'
+/Library/Ruby/Gems/1.8/gems/activerecord-2.3.5/lib/active_record/transactions.rb:200:in `save!'
+/Library/Ruby/Gems/1.8/gems/activerecord-2.3.5/lib/active_record/connection_adapters/abstract/database_statements.rb:136:in `transaction'
+/Library/Ruby/Gems/1.8/gems/activerecord-2.3.5/lib/active_record/transactions.rb:182:in `transaction'
+/Library/Ruby/Gems/1.8/gems/activerecord-2.3.5/lib/active_record/transactions.rb:200:in `save!'
+/Library/Ruby/Gems/1.8/gems/activerecord-2.3.5/lib/active_record/transactions.rb:208:in `rollback_active_record_state!'
+/Library/Ruby/Gems/1.8/gems/activerecord-2.3.5/lib/active_record/transactions.rb:200:in `save!'
+/Library/Ruby/Gems/1.8/gems/activerecord-2.3.5/lib/active_record/validations.rb:1059:in `create!'
+/www/seo_link_alerts/spec/models/feed_spec.rb:11:</pre></div>
+    <pre class="ruby"><code><span class="linenum">253</span>          <span class="ident">__send__</span><span class="punct">(&quot;</span><span class="string">attribute<span class="expr">#{method_type}</span></span><span class="punct">&quot;,</span> <span class="ident">attribute_name</span><span class="punct">,</span> <span class="punct">*</span><span class="ident">args</span><span class="punct">,</span> <span class="punct">&amp;</span><span class="ident">block</span><span class="punct">)</span>
+<span class="linenum">254</span>        <span class="keyword">else</span>
+<span class="offending"><span class="linenum">255</span>          <span class="keyword">super</span></span>
+<span class="linenum">256</span>        <span class="keyword">end</span>
+<span class="linenum">257</span>      <span class="keyword">elsif</span> <span class="attribute">@attributes</span><span class="punct">.</span><span class="ident">include?</span><span class="punct">(</span><span class="ident">method_name</span><span class="punct">)</span></code></pre>
+      </div>
+    </dd>
+  </dl>
+</div>
+<script type="text/javascript">document.getElementById('duration').innerHTML = "Finished in <strong>0.389941 seconds</strong>";</script>
+<script type="text/javascript">document.getElementById('totals').innerHTML = "1 example, 1 failure";</script>
+</div>
+</div>
+</body>
+</html>
