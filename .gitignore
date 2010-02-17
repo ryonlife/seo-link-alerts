@@ -8,4 +8,5 @@ doc/api
 doc/app
 *.sqlite3
 .bundle
+vendor/bundler_gems
 *.autotest
