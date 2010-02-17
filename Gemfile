@@ -14,7 +14,7 @@ gem "domainatrix"
 
 group :test do
  gem "rspec"
- gem "rspec rails"
+ gem "rspec-rails"
 end
 
 group :cucumber do
