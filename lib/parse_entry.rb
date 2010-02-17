@@ -4,7 +4,6 @@ class ParseEntry < Struct.new(:url, :feed_id)
     doc = Nokogiri::HTML(open(url))
     Domain.all.each do |d|
       doc.xpath("//a[contains(@href, '#{d.name}')]").each do |link|
-        debugger
         if link.attribute('rel').nil? || link.attribute('rel').text != 'nofollow'
           alert = Alert.find_by_url(url)
           domain = Domain.find_by_id(d.id)
@@ -25,7 +24,6 @@ class ParseEntry < Struct.new(:url, :feed_id)
   end
   
   def already_joined?(obj, id)
-    # debugger
     already_joined = false
     obj.each do |o|
       if o.id == id then already_joined = true end
