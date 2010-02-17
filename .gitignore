@@ -7,5 +7,5 @@ tmp/**/*
 doc/api
 doc/app
 *.sqlite3
-vendor/bundler_gems
+.bundle
 *.autotest
