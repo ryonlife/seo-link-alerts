@@ -1,0 +1,29 @@
+# -*- encoding: utf-8 -*-
+
+Gem::Specification.new do |s|
+  s.name = %q{domainatrix}
+  s.version = "0.0.7"
+
+  s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
+  s.authors = ["Paul Dix"]
+  s.date = %q{2009-12-09}
+  s.email = %q{paul@pauldix.net}
+  s.files = ["lib/domainatrix.rb", "lib/effective_tld_names.dat", "lib/domainatrix/domain_parser.rb", "lib/domainatrix/url.rb", "README.textile", "spec/spec.opts", "spec/spec_helper.rb", "spec/domainatrix_spec.rb", "spec/domainatrix/domain_parser_spec.rb", "spec/domainatrix/url_spec.rb"]
+  s.homepage = %q{http://github.com/pauldix/domainatrix}
+  s.require_paths = ["lib"]
+  s.rubygems_version = %q{1.3.5}
+  s.summary = %q{A cruel mistress that uses the public suffix domain list to dominate URLs by canonicalizing, finding the public suffix, and breaking them into their domain parts.}
+
+  if s.respond_to? :specification_version then
+    current_version = Gem::Specification::CURRENT_SPECIFICATION_VERSION
+    s.specification_version = 2
+
+    if Gem::Version.new(Gem::RubyGemsVersion) >= Gem::Version.new('1.2.0') then
+      s.add_runtime_dependency(%q<addressable>, [">= 0"])
+    else
+      s.add_dependency(%q<addressable>, [">= 0"])
+    end
+  else
+    s.add_dependency(%q<addressable>, [">= 0"])
+  end
+end
