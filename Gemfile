@@ -16,11 +16,3 @@ group :test do
  gem "rspec"
  gem "rspec-rails"
 end
-
-group :cucumber do
-  gem "cucumber-rails"
-  gem "database_cleaner"
-  gem "webrat"
-  gem "rspec"
-  gem "rspec-rails"
-end

@@ -88,13 +88,18 @@ p.flash {
         top: 1px; }
   #content #feed_url {
     width: 750px; }
-  #content input {
+  #content input,
+  #content textarea {
     font-family: "Lucida Grande","Lucida Sans Unicode",Arial,Verdana,sans-serif; }
   #content input[type="text"],
-  #content input[type="password"] {
+  #content input[type="password"],
+  #content textarea {
     width: 300px;
     font-size: 16px;
     padding: 3px; }
+  #content textarea {
+    width: 304px;
+    height: 200px; }
   #content label {
     display: block;
     font-weight: bold;

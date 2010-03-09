@@ -9,12 +9,12 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100214042156) do
+ActiveRecord::Schema.define(:version => 20100309170352) do
 
   create_table "alerts", :force => true do |t|
     t.string   "url"
     t.string   "title"
-    t.text     "metrics"
+    t.text     "metrics",    :limit => 1000
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -45,7 +45,6 @@ ActiveRecord::Schema.define(:version => 20100214042156) do
   create_table "domains", :force => true do |t|
     t.integer  "user_id"
     t.string   "name"
-    t.datetime "last_alert_at"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -55,7 +54,7 @@ ActiveRecord::Schema.define(:version => 20100214042156) do
     t.string   "url"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.datetime "begin_parsing_after", :default => '2000-02-10 19:06:24'
+    t.datetime "begin_parsing_after"
     t.string   "name"
   end
 
@@ -74,6 +73,8 @@ ActiveRecord::Schema.define(:version => 20100214042156) do
     t.datetime "last_login_at"
     t.string   "current_login_ip"
     t.string   "last_login_ip"
+    t.float    "min_mozrank",        :default => 3.0
+    t.text     "blacklist"
   end
 
 end

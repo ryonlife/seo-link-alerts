@@ -1,4 +1,31 @@
 <h2>Account</h2>
 
-<%= render :partial => 'form' %>
+<% form_for @user do |f| %>
+  <%= f.error_messages %>
+  <p>
+    <%= f.label :username %>
+    <%= f.text_field :username %>
+  </p>
+  <p>
+    <%= f.label :email %>
+    <%= f.text_field :email %>
+  </p>
+  <p>
+    <%= f.label :password %>
+    <%= f.password_field :password %>
+  </p>
+  <p>
+    <%= f.label :password_confirmation %>
+    <%= f.password_field :password_confirmation %>
+  </p>
+  <p>
+    <%= f.label :min_mozrank, 'Minimum mozRank' %>
+    <%= f.text_field :min_mozrank %>
+  </p>
+  <p>
+    <%= f.label :blacklist, 'Blacklisted Domains' %>
+    <%= f.text_area :blacklist %>
+  </p>
+  <p><%= f.submit "Submit" %></p>
+<% end %>
 
