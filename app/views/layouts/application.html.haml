@@ -20,7 +20,7 @@
           %li.alerts= link_to "Alerts", :alerts
           %li.domains= link_to "Domains", :domains
           %li.feeds= link_to "Feeds", :feeds
-          %li.users= link_to "Account", edit_user_path(:current)
+          %li.users= link_to "Settings", edit_user_path(:current)
           %li.logout= link_to "Logout", logout_path
         -else
           %li.user_sessions= link_to "Login", login_path

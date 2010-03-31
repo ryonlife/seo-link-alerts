@@ -14,7 +14,7 @@ ActiveRecord::Schema.define(:version => 20100309170352) do
   create_table "alerts", :force => true do |t|
     t.string   "url"
     t.string   "title"
-    t.text     "metrics",    :limit => 1000
+    t.text     "metrics"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -45,6 +45,7 @@ ActiveRecord::Schema.define(:version => 20100309170352) do
   create_table "domains", :force => true do |t|
     t.integer  "user_id"
     t.string   "name"
+    t.datetime "last_alert_at"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

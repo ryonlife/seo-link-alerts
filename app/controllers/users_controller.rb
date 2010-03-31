@@ -20,22 +20,15 @@ class UsersController < ApplicationController
   def edit
     require_user
     @user = current_user
-    blacklist = ''
-    @user[:blacklist].to_array.each do |item|
-      blacklist = blacklist + "\n" + item
-      debugger
-    end
-    @user[:blacklist] = blacklist
   end
   
   def update
     @user = current_user
     blacklist = []
-    params[:user][:blacklist].each do |line|
-      blacklist << line.strip
-    end
-    params[:user][:blacklist] = blacklist.to_yaml
-    if @user.update_attributes(params[:user]) then flash[:notice] = "Successfully updated user." end
+    params[:user][:blacklist_textarea].each {|line| blacklist << line.chomp}
+    params[:user][:blacklist] = blacklist
+    params[:user].delete "blacklist_textarea"
+    flash[:notice] = "Successfully updated user." if @user.update_attributes(params[:user])
     render :action => 'edit'
   end
 end
