@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   def new
     if current_user
-      redirect_to :controller => "alerts"
+      redirect_to :controller => :alerts
     else
       @user = User.new
     end
@@ -13,7 +13,7 @@ class UsersController < ApplicationController
       flash[:notice] = "Registration successful."
       redirect_to :controller => "feeds"
     else
-      render :action => "new"
+      render :action => :new
     end
   end
   

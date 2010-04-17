@@ -7,6 +7,8 @@ class User < ActiveRecord::Base
   after_save :blacklist_purge, :if => :blacklist_changed?
   after_save :min_metric_purge, :if => :min_metric_changed?
   
+  private
+
   def blacklist_purge
     Alert.find(:all).each do |alert|
       self.blacklist.each do |domain|
@@ -19,13 +21,11 @@ class User < ActiveRecord::Base
   end
   
   def min_metric_purge
-    Alert.find(:all).each {|alert| Alert.destroy(alert) if alert.metrics['fmrp'] < self.min_metric}
+    Alert.find(:all).each {|alert| Alert.destroy(alert) if alert.metrics["fmrp"] < self.min_metric}
   end
 
-  protected
-
   def blacklist_textarea
-    self.blacklist.join(",")
+    (self.blacklist.nil?) ? "" : self.blacklist.join(",")
   end
 
 end
