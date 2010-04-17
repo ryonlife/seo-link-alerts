@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100309170352) do
+ActiveRecord::Schema.define(:version => 20100417203832) do
 
   create_table "alerts", :force => true do |t|
     t.string   "url"
@@ -74,7 +74,7 @@ ActiveRecord::Schema.define(:version => 20100309170352) do
     t.datetime "last_login_at"
     t.string   "current_login_ip"
     t.string   "last_login_ip"
-    t.float    "min_mozrank",        :default => 3.0
+    t.float    "min_metric",         :default => 3.0
     t.text     "blacklist"
   end
 

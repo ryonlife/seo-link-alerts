@@ -5,14 +5,21 @@ class User < ActiveRecord::Base
   has_many :alerts, :dependent => :destroy
   serialize :blacklist
   after_save :blacklist_purge, :if => :blacklist_changed?
-  after_save :min_mozrank_purge, :if => :min_mozrank_changed?
+  after_save :min_metric_purge, :if => :min_metric_changed?
   
   def blacklist_purge
-    puts "blacklist"
+    Alert.find(:all).each do |alert|
+      self.blacklist.each do |domain|
+        if alert.url.match(/#{domain}/)
+          Alert.destroy(alert)
+          break
+        end
+      end
+    end
   end
   
-  def min_mozrank_purge
-    puts "min_mozrank"
+  def min_metric_purge
+    Alert.find(:all).each {|alert| Alert.destroy(alert) if alert.metrics['fmrp'] < self.min_metric}
   end
 
   protected
