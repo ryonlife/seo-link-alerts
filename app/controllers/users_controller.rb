@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   def new
     if current_user
-      redirect_to :controller => 'alerts'
+      redirect_to :controller => "alerts"
     else
       @user = User.new
     end
@@ -11,9 +11,9 @@ class UsersController < ApplicationController
     @user = User.new(params[:user])
     if @user.save
       flash[:notice] = "Registration successful."
-      redirect_to :controller => 'feeds'
+      redirect_to :controller => "feeds"
     else
-      render :action => 'new'
+      render :action => "new"
     end
   end
   
@@ -24,11 +24,9 @@ class UsersController < ApplicationController
   
   def update
     @user = current_user
-    blacklist = []
-    params[:user][:blacklist_textarea].each {|line| blacklist << line.chomp}
-    params[:user][:blacklist] = blacklist
+    params[:user][:blacklist] = params[:user][:blacklist_textarea].map {|line| line.strip}
     params[:user].delete "blacklist_textarea"
     flash[:notice] = "Successfully updated user." if @user.update_attributes(params[:user])
-    render :action => 'edit'
+    render :action => :edit
   end
 end

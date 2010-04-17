@@ -88,5 +88,7 @@ $(function(){
       }
     );
   
+  $("textarea").val($("textarea").val().replace(/,/g, "\n"));
+  
 });
 

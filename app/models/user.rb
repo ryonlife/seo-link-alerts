@@ -18,7 +18,7 @@ class User < ActiveRecord::Base
   protected
 
   def blacklist_textarea
-    self.blacklist.join("\n")
+    self.blacklist.join(",")
   end
 
 end
