@@ -11,9 +11,9 @@
 user = User.create!(
   :username => "workingpoint",
   :email => "rmckillen@workingpoint.com",
-  :password => "workingpoint1",
-  :password_confirmation => "workingpoint1",
-  :min_metric => 3,
+  :password => "workingpoint45",
+  :password_confirmation => "workingpoint45",
+  :min_metric => 3.00,
   :blacklist => %w(craigslist.com twitter.com topsy.com xmarks.com tweetmeme.com)
 )
 

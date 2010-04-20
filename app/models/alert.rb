@@ -5,16 +5,16 @@ class Alert < ActiveRecord::Base
   after_create :alert_metrics_job
   serialize :metrics
   before_save :check_blacklist
-  before_save :check_metric
+  after_save :check_metric, :if => :metrics_changed?
   
   private
 
   def check_blacklist
-    current_user.blacklist.each {|domain| return false if self.url.match(/#{domain}/)}
+    User.find(self.user_id).blacklist.each {|domain| return false if self.url.match(/#{domain}/)}
   end
   
   def check_metric
-    false if self.metrics["fmrp"] >= current_user.min_metric
+    Alert.destroy(self) if !self.metrics.nil? && User.find(self.user_id).min_metric > self.metrics["fmrp"]
   end
   
   def alert_metrics_job
